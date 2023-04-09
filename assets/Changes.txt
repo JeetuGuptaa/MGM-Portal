@@ -1,0 +1,7 @@
+Changes in Id
+'a' is changed to 'left'
+'login' is changed to 'right'
+
+
+Changes in classes
+'x' changed to 'btn'

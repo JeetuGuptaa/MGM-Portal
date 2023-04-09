@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='/css/style.css'>
+    <title>MGM's Portal</title>
+</head>
+<body>
+    <section id="main">
+        <div id="left">
+            <div id="text">
+                <h1>MGM's Portal</h1>
+                <h3>Admin Section</h3>
+            </div>
+        </div>
+    <div id="right">
+        <div class="heading">
+            <h2>Admin Sign Up</h2>
+        </div>
+        
+        <div id="form">
+            <form action="/admin/createAdmin" method = "post">
+                
+             <input type="text" name = "name" placeholder="Name" class="text">
+             <input type="email" name = "email" placeholder="Email" class="text">
+             <input type="password" name = "password" placeholder="Password" class="text">
+             <input type="password" name = "confirmPassword" placeholder="Confirm Password" class="text">
+             <button class = "btn">Sign Up</button>
+            
+            </form>
+        </div>
+    </div>
+    </section>
+    <script src = '/js/jquery-3.6.3.js'></script>
+    <script src = '/js/script.js'></script>
+
+</body>
+</html>
