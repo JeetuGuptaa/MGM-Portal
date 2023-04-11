@@ -7,7 +7,7 @@ router.get('/Signup', passport.checkAdminAuthentication, adminController.signup)
 router.get('/login', passport.checkAdminAuthentication, adminController.signin);
 router.get('/dashboard',passport.isAdmin, adminController.dashboard);
 router.post('/createAdmin',adminController.createAdmin);
-router.post('/create-Session',
+router.post('/create-Session/:userType',
     passport.authenticate('local',
     {
         failureRedirect: '/admin/login',

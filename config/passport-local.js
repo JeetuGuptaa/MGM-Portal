@@ -4,17 +4,25 @@ const Admin = require('../models/Admin');
 
 passport.use(new LocalStrategy({
   usernameField: 'email',
-  passwordField: 'password'
+  passwordField: 'password',
+  passReqToCallback: true
 },
-    async function(email, password, done) {
+    async function(req, email, password, done) {
       try{
-        const admin = await Admin.findOne({ email: email });
-        if(!admin) return done(null, false, {message : "Admin doesn't exists"});
-        if(admin.password != password){
-          
-          return done(null, false, {message : "Invalid Credentials"});
+        //passing userType in params to ease the search
+        if(req.params.userType=='admin'){
+            const admin = await Admin.findOne({ email: email });
+            if(!admin) return done(null, false, {message : "Admin doesn't exists"});
+            if(admin.password != password){
+              return done(null, false, {message : "Invalid Credentials"});
+            }
+            return done(null, admin);
+        }else if(req.params.userType == 'student'){
+          //TODO
         }
-        return done(null, admin);
+        else if(req.params.userType == 'teacher'){
+          //TODO
+        }
       }catch(err){
         done(err);
       }
